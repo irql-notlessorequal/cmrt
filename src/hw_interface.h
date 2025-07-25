@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 Intel Corporation
+ * Copyright Â© 2014 Intel Corporation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the
@@ -136,6 +136,7 @@
 
 #define GENHW_USE_MEDIA_THREADS_MAX         0
 #define GENHW_MEDIA_THREADS_MAX_G75_GT1     70
+#define GENHW_MEDIA_THREADS_MAX_G75_GT1_5   84
 #define GENHW_MEDIA_THREADS_MAX_G75_GT2     140
 #define GENHW_MEDIA_THREADS_MAX_G75_GT3     280
 #define GENHW_MEDIA_THREADS_MAX_G8_GT1      84

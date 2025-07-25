@@ -382,6 +382,9 @@ GENOS_STATUS HalCm_GetUserDefinedThreadCountPerThreadGroup_g75(PCM_HAL_STATE
 	if (pState->pHwInterface->Platform.GtType == GTTYPE_GT1) {
 		threads_per_eu = GENHW_CM_THREADS_PER_EU_HSW_GT1;
 		eu_per_subslice = GENHW_CM_EU_PER_SUBSLICE_HSW_GT1;
+	} else if (pState->pHwInterface->Platform.GtType == GTTYPE_GT1_5) {
+		threads_per_eu = GENHW_CM_THREADS_PER_EU_HSW_GT1_5;
+		eu_per_subslice = GENHW_CM_EU_PER_SUBSLICE_HSW_GT1_5;
 	} else if (pState->pHwInterface->Platform.GtType == GTTYPE_GT2) {
 		threads_per_eu = GENHW_CM_THREADS_PER_EU_HSW_GT2;
 		eu_per_subslice = GENHW_CM_EU_PER_SUBSLICE_HSW_GT2;

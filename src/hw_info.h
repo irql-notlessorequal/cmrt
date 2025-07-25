@@ -140,6 +140,8 @@ typedef struct PLATFORM_STR {
 #define IHSW_CL_WS_GT2_DEV_ID                0x41B
 #define IHSW_CL_SERV_GT2_DEV_ID              0x41A
 
+#define IHSW_CL_UNKWN_GT1_5_DEV_ID             0x41E
+
 #define IHSW_ULT_MOBL_GT1_DEV_ID              0xA06
 #define IHSW_ULT_MOBL_GT2_DEV_ID              0xA16
 #define IHSW_ULT_MOBL_GT3_DEV_ID              0xA26
@@ -267,6 +269,7 @@ typedef struct PLATFORM_STR {
                                device_id == IHSW_CL_MOBL_GT2_DEV_ID       || \
                                device_id == IHSW_CL_WS_GT2_DEV_ID         || \
                                device_id == IHSW_CL_SERV_GT2_DEV_ID       || \
+                               device_id == IHSW_CL_UNKWN_GT1_5_DEV_ID    || \
                                device_id == IHSW_ULT_MOBL_GT1_DEV_ID      || \
                                device_id == IHSW_ULT_MOBL_GT2_DEV_ID      || \
                                device_id == IHSW_ULT_MOBL_GT3_DEV_ID      || \

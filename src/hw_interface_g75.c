@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 Intel Corporation
+ * Copyright ï¿½ 2014 Intel Corporation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the
@@ -427,6 +427,21 @@ CONST GENHW_HW_CAPS g_IntelGen_HwCaps_g75_gt1 = {
 	GENHW_CURBE_SIZE_MAX_G75,
 	GENHW_INTERFACE_DESCRIPTOR_ENTRIES_MAX_G75,
 	GENHW_SUBSLICES_MAX_G75_GT1,
+	GENHW_EU_INDEX_MAX_G75,
+	GENHW_MEDIA_THREADS_PER_EU_MAX_G75,
+	GENHW_SIZE_REGISTERS_PER_THREAD_G75
+};
+
+CONST GENHW_HW_CAPS g_IntelGen_HwCaps_g75_gt1_5 = {
+	GENHW_SSH_SURFACES_PER_BT_MAX - 1,
+	GENHW_MEDIA_THREADS_MAX_G75_GT1_5,
+	512,
+	GENHW_URB_SIZE_MAX_G75,
+	GENHW_URB_ENTRIES_MAX_G75_GT2,
+	GENHW_URB_ENTRY_SIZE_MAX_G75,
+	GENHW_CURBE_SIZE_MAX_G75,
+	GENHW_INTERFACE_DESCRIPTOR_ENTRIES_MAX_G75,
+	GENHW_SUBSLICES_MAX_G75_GT2,
 	GENHW_EU_INDEX_MAX_G75,
 	GENHW_MEDIA_THREADS_PER_EU_MAX_G75,
 	GENHW_SIZE_REGISTERS_PER_THREAD_G75
@@ -1301,6 +1316,11 @@ GENHW_MEDIA_WALKER_MODE IntelGen_HwSelectWalkerStateMode_g75(PGENHW_HW_INTERFACE
 
 	if (pHwInterface->Platform.GtType == GTTYPE_GT1) {
 		Mode = GENHW_MEDIA_WALKER_REPEL_MODE;
+	} else if (pHwInterface->Platform.GtType == GTTYPE_GT1_5) {
+		if (pHwInterface->MediaWalkerMode !=
+		    GENHW_MEDIA_WALKER_REPEL_MODE) {
+			Mode = GENHW_MEDIA_WALKER_DUAL_MODE;
+		}
 	} else if (pHwInterface->Platform.GtType == GTTYPE_GT2) {
 		if (pHwInterface->MediaWalkerMode !=
 		    GENHW_MEDIA_WALKER_REPEL_MODE) {
@@ -1670,6 +1690,8 @@ VOID IntelGen_HwInitInterface_g75(PGENHW_HW_INTERFACE pHwInterface)
 {
 	if (pHwInterface->Platform.GtType == GTTYPE_GT1) {
 		pHwInterface->pHwCaps = &g_IntelGen_HwCaps_g75_gt1;
+	} else if (pHwInterface->Platform.GtType == GTTYPE_GT1_5) {
+		pHwInterface->pHwCaps = &g_IntelGen_HwCaps_g75_gt1_5;
 	} else if (pHwInterface->Platform.GtType == GTTYPE_GT2) {
 		pHwInterface->pHwCaps = &g_IntelGen_HwCaps_g75_gt2;
 	} else {

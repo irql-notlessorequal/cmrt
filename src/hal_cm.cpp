@@ -2114,6 +2114,11 @@ GENOS_STATUS HalCm_GetPlatformInfo(PCM_HAL_STATE pState,
 			    CM_GEN7_5_GT2_EUS_PER_SUBSLICE;
 			platformInfo->numSlices = CM_GEN7_5_GT2_SLICE_NUM;
 			platformInfo->numSubSlices = CM_GEN7_5_GT2_SUBSLICE_NUM;
+		} else if (pHwInterface->Platform.GtType == GTTYPE_GT1_5) {
+			platformInfo->numEUsPerSubSlice =
+			    CM_GEN7_5_GT2_EUS_PER_SUBSLICE;
+			platformInfo->numSlices = CM_GEN7_5_GT2_SLICE_NUM;
+			platformInfo->numSubSlices = CM_GEN7_5_GT2_SUBSLICE_NUM;
 		} else if (pHwInterface->Platform.GtType == GTTYPE_GT1) {
 			platformInfo->numEUsPerSubSlice =
 			    CM_GEN7_5_GT1_EUS_PER_SUBSLICE;

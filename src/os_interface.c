@@ -1707,6 +1707,12 @@ static int updatePlatformInfo(PLATFORM * pPlatform)
 					  IGFX_GEN7_5_CORE);
 		pPlatform->GtType = GTTYPE_GT1;
 		break;
+	case IHSW_CL_UNKWN_GT1_5_DEV_ID:
+		platform_setTypeAndFamily(pPlatform, PLATFORM_DESKTOP,
+					  IGFX_HASWELL, IGFX_GEN7_5_CORE,
+					  IGFX_GEN7_5_CORE);
+		pPlatform->GtType = GTTYPE_GT1_5;
+		break;	
 	case IHSW_GTH_DESK_DEVICE_F0_ID:
 	case IHSW_GTM_DESK_DEVICE_F0_ID:
 	case IHSW_GTL_DESK_DEVICE_F0_ID:
